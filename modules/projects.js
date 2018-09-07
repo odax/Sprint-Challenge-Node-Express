@@ -42,7 +42,7 @@ router.post('/', (req, res) => {
               res.status(400).json({message: 'name and description need to be 128 characters or below'})
           }
       }
-})
+}),
 //remove
 router.delete('/:id', (req, res) => {
     const { id } = req.params;
@@ -57,8 +57,32 @@ router.delete('/:id', (req, res) => {
     PH.remove(id).then(response => {
         res.status(200).json({message: `successfully deleted ${response} projects: ${projectToDelete}`})
     })
-})
+}),
 
 //update
+
+router.put('/:id', (req, res) => {
+    const { id } = req.params;
+    const { name, description, completed} = req.body;
+    // if (!name || !description) {
+    //     res.status(400).json({
+    //         error: `Please include name and description`
+    //     })
+    // } else {
+    //     if ((title.length <= 128) && (description.length <= 128)) {
+            PH.update(id,{name, description, completed})
+            .then(project => {
+                    // if (count > 0) {
+                        console.log(project)
+                        res.status(200).json({ msg: `project updated successfully: ${project}` })
+                    // } else {
+                    //     res.status(404).json({ msg: 'project not found'});
+                    // }
+                }).catch(err => {
+                    res.status(500).json({error: `error: ${err}`})})
+    //             })
+    //     } else {
+    //                         res.status(400).json({ messege: 'Please keep name and description length at or below 128 characters.'})
+})
 
 module.exports = router;
