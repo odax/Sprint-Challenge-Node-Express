@@ -8,6 +8,7 @@ const PH = require('../data/helpers/projectModel');
 
 
 //get
+//retrieves a project, and the list of actions
 
 router.get('/:id', (req, res) => {
     const { id } = req.params;
