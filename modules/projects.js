@@ -25,9 +25,8 @@ router.get('/:id', (req, res) => {
 }),
 
 //add
-router.post('/post', (req, res) => {
+router.post('/', (req, res) => {
     const {name, description, id} = req.body;
-    console.log(name);
     //   if (!newProject.name || !newProject.description) {
     //       res.status(400).json({message: 'needs title and content to post'})
     //   } else {

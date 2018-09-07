@@ -5,6 +5,8 @@ const projectRoutes = require('./modules/projects');
 
 const server = express();
 
+server.use(express.json());
+
 server.use('/projects', projectRoutes);
 // server.use('/actions', actionRoutes);
 
