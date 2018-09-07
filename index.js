@@ -1,11 +1,11 @@
 const express = require('express');
 
-// const projectRoutes = require('./modules/projects');
+const projectRoutes = require('./modules/projects');
 // const actionRoutes = require('./modules/actions');
 
 const server = express();
 
-// server.use('/projects', projectRoutes);
+server.use('/projects', projectRoutes);
 // server.use('/actions', actionRoutes);
 
 server.use('/', (req, res) => {
